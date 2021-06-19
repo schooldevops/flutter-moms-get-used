@@ -10,16 +10,21 @@ class MainHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: EdgeInsets.only(left: 20, top:10, bottom: 5, right: 20),
+      padding: EdgeInsets.only(left: 20, top: 10, bottom: 5, right: 20),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Dropdown(
-                defaultValue: defaultValue,
-                items: items,
+              Container(
+                width: width / 3,
+                child: Dropdown(
+                  defaultValue: defaultValue,
+                  items: items,
+                ),
               )
             ],
           ),

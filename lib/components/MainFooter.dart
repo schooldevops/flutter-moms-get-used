@@ -21,7 +21,7 @@ class _MainFooterState extends State<MainFooter> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(5.0),
             child: Column(
               children: <Widget>[
                 GestureDetector(
@@ -41,7 +41,7 @@ class _MainFooterState extends State<MainFooter> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(5.0),
             child: Column(
               children: <Widget>[
                 GestureDetector(
@@ -50,9 +50,7 @@ class _MainFooterState extends State<MainFooter> {
                       size: 25.0,
                       color: Colors.black26,
                     ),
-                    onTap: () {
-                      print("Pressed");
-                    }),
+                    onTap: () {}),
                 SizedBox(
                   height: 5,
                 ),
@@ -61,7 +59,7 @@ class _MainFooterState extends State<MainFooter> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(5.0),
             child: Column(
               children: <Widget>[
                 GestureDetector(
@@ -71,7 +69,7 @@ class _MainFooterState extends State<MainFooter> {
                       color: Colors.redAccent,
                     ),
                     onTap: () {
-                      print("Pressed");
+                      Navigator.pushNamed(context, 'addProduct');
                     }),
                 // SizedBox(
                 //   height: 5,
@@ -81,7 +79,7 @@ class _MainFooterState extends State<MainFooter> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(5.0),
             child: Column(
               children: <Widget>[
                 GestureDetector(
@@ -101,7 +99,7 @@ class _MainFooterState extends State<MainFooter> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10.0),
+            margin: EdgeInsets.all(5.0),
             child: Column(
               children: <Widget>[
                 GestureDetector(

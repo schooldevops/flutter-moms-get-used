@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moms_get_used/models/UserInfo.dart';
+import 'package:moms_get_used/screens/AddProductScreen.dart';
 import 'package:moms_get_used/screens/HomeScreen.dart';
 import 'package:moms_get_used/services/ProductService.dart';
 import 'package:moms_get_used/services/UserService.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
             home: HomeScreen(),
             routes: {
               'home': (context) => HomeScreen(),
+              'addProduct': (context) => AddProductScreen(),
             },
           );
         },

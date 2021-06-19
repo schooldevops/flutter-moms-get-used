@@ -18,28 +18,43 @@ class BasicItemList extends StatelessWidget {
     // List<Image> images = product.getImages()!;
 
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(15),
+      decoration: BoxDecoration(
+          border:
+              Border(bottom: BorderSide(color: Colors.black12, width: 0.5))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          GestureDetector(
+            onTap: () {
+              print("Tapped");
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailProductScreen(item: product),
+                  // builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+            child: Container(
+              width: 110.0,
+              height: 110.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              ),
+              child: (product.items != null && product.items!.isNotEmpty)
+                  ? Image(
+                      image: NetworkImage(product.items![0]),
+                      height: 100.0,
+                      width: 100.0,
+                    )
+                  : Image(
+                      image: NetworkImage(imgUrl),
+                      height: 100.0,
+                      width: 100.0,
+                    ),
             ),
-            child: (product.items != null && product.items!.isNotEmpty)
-                ? Image(
-                    image: NetworkImage(product.items![0]),
-                    height: 100.0,
-                    width: 100.0,
-                  )
-                : Image(
-                    image: NetworkImage(imgUrl),
-                    height: 100.0,
-                    width: 100.0,
-                  ),
           ),
           SizedBox(
             width: 20.0,

@@ -15,14 +15,15 @@ class _DropdownState extends State<Dropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      isExpanded: true,
       value: this.widget.defaultValue,
-      icon: const Icon(Icons.arrow_downward),
+      icon: const Icon(Icons.keyboard_arrow_down_sharp),
       iconSize: 24,
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: const TextStyle(color: Colors.black),
       underline: Container(
         height: 0,
-        color: Colors.deepPurpleAccent,
+        color: Colors.black26,
       ),
       onChanged: (String? newValue) {
         setState(() {

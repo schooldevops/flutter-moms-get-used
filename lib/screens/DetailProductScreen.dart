@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moms_get_used/components/Carousel.dart';
 import 'package:moms_get_used/components/ProductDetailFooter.dart';
-import 'package:moms_get_used/components/ProductDetailHeader.dart';
 import 'package:moms_get_used/components/ProductDetailInfo.dart';
 import 'package:moms_get_used/components/SellerInfoArea.dart';
 import 'package:moms_get_used/models/Item.dart';
@@ -25,51 +24,54 @@ class DetailProductScreen extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     Positioned.fill(
-                      child: Container(
-                        width: double.infinity,
-                        alignment: Alignment.center,
-                        child: Carousel(items: item.items),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: width,
+                                height: width,
+                                alignment: Alignment.center,
+                                child: Carousel(items: item.items),
+                              ),
+                              SellerInfoArea(),
+                              Divider(
+                                thickness: 1,
+                              ),
+                              ProductDetailInfo(item: item),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(
                       top: 0,
                       left: 0,
                       right: 0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          IconButton(
-                            icon: Icon(
-                              Icons.chevron_left,
-                            ),
-                            onPressed: () => Navigator.pop(context),
-                          ),
-                          IconButton(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(50, 200, 200, 200)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            IconButton(
                               icon: Icon(
-                                Icons.shopping_basket,
+                                Icons.chevron_left,
                               ),
-                              onPressed: () =>
-                                  Navigator.pushNamed(context, 'orderscreen')),
-                        ],
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                            IconButton(
+                                icon: Icon(
+                                  Icons.shopping_basket,
+                                ),
+                                onPressed: () => Navigator.pushNamed(
+                                    context, 'orderscreen')),
+                          ],
+                        ),
                       ),
                     ),
                   ],
-                ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Container(
-                    child: Column(
-                      children: [
-                        SellerInfoArea(),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        ProductDetailInfo(item: item),
-                      ],
-                    ),
-                  ),
                 ),
               ),
               Divider(
