@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:moms_get_used/cosnts/Categories.dart';
 import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 import 'package:moms_get_used/models/UserInfo.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class CategoryScreen extends StatelessWidget {
-  List<String> categories = ['식기', '장난감', '유모차', '유아도서', '유아의류', '분유'];
+  List<String> categories = [
+    'ALL',
+    'DISH',
+    'TOY',
+    'STROLLER',
+    'BOOKS',
+    'CLOTH',
+    'MEAL',
+    'ETC'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +43,7 @@ class CategoryScreen extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 children: [
-                  categoryItems(context, 'All', 'All' == userInfo.category),
+                  categoryItems(context, 'ALL', 'ALL' == userInfo.category),
                   ...categories.map((item) => categoryItems(
                       context, '$item', '$item' == userInfo.category))
                 ],
@@ -64,9 +74,9 @@ class CategoryScreen extends StatelessWidget {
                   color: Colors.black54,
                 ),
                 SizedBox(
-                  height: 8,
+                  height: 10,
                 ),
-                Center(child: Text('$title')),
+                Center(child: Text('${kCategories[title]}')),
               ],
             ),
           ),

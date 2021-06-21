@@ -5,6 +5,7 @@ import 'package:moms_get_used/components/Dropdown.dart';
 import 'package:moms_get_used/components/ImageBox.dart';
 import 'package:moms_get_used/cosnts/Categories.dart';
 import 'package:moms_get_used/cosnts/ColorsConstants.dart';
+import 'package:moms_get_used/cosnts/Constants.dart';
 
 // ignore: must_be_immutable
 class AddProductScreen extends StatefulWidget {
@@ -30,6 +31,8 @@ class _AddProductScreen extends State<AddProductScreen> {
   final TextEditingController _priceController = new TextEditingController();
 
   final ImagePicker _picker = ImagePicker();
+
+  kGenderEnum _gender = kGenderEnum.MALE;
 
   Future pickImage() async {
     try {
@@ -158,9 +161,8 @@ class _AddProductScreen extends State<AddProductScreen> {
                                   height: 20,
                                 ),
                                 Dropdown(
-                                  defaultValue:
-                                      Categories.CATEGORIES.values.first,
-                                  items: Categories.CATEGORIES.values.toList(),
+                                  defaultValue: kCategories.values.first,
+                                  items: kCategories.values.toList(),
                                   isBold: false,
                                   isDefaultFont: true,
                                 ),
@@ -196,24 +198,81 @@ class _AddProductScreen extends State<AddProductScreen> {
                                     return null;
                                   },
                                 ),
-                                new Container(
-                                    padding: const EdgeInsets.only(
-                                        left: 150.0, top: 40.0),
-                                    child: new ElevatedButton(
-                                      child: const Text('Submit'),
-                                      style: ElevatedButton.styleFrom(
-                                        primary: kMainButtonColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              new BorderRadius.circular(8.0),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        decoration: const InputDecoration(
+                                          hintText: '대상나이',
+                                          labelText: '대상나이',
                                         ),
+                                        maxLines: 1,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return '대상 나이를 입력하세요. ';
+                                          }
+                                          return null;
+                                        },
                                       ),
-                                      onPressed: () {
-                                        // It returns true if the form is valid, otherwise returns false
-                                        if (_formKey.currentState!
-                                            .validate()) {}
-                                      },
-                                    )),
+                                    ),
+                                    Expanded(
+                                      child: Dropdown(
+                                        defaultValue:
+                                            kYearEnum.MONTH.toString(),
+                                        items: kYearEnum.values
+                                            .map((item) => item.toString())
+                                            .toList(),
+                                        isBold: false,
+                                        isDefaultFont: true,
+                                        isExpanded: false,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                ListTile(
+                                  title: Text('남자'),
+                                  leading: Radio(
+                                    value: kGenderEnum.MALE,
+                                    groupValue: _gender,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _gender = kGenderEnum.MALE;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                ListTile(
+                                  title: Text('여자'),
+                                  leading: Radio(
+                                    value: kGenderEnum.FEMALE,
+                                    groupValue: _gender,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _gender = kGenderEnum.FEMALE;
+                                      });
+                                    },
+                                  ),
+                                ),
+                                new Container(
+                                  padding: const EdgeInsets.only(
+                                      left: 150.0, top: 40.0),
+                                  child: new ElevatedButton(
+                                    child: const Text('Submit'),
+                                    style: ElevatedButton.styleFrom(
+                                      primary: kMainButtonColor,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            new BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      // It returns true if the form is valid, otherwise returns false
+                                      if (_formKey.currentState!.validate()) {}
+                                    },
+                                  ),
+                                ),
                               ],
                             ),
                           ),

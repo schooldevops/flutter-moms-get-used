@@ -7,12 +7,14 @@ class Dropdown extends StatefulWidget {
   List<String> items;
   bool isBold;
   bool isDefaultFont;
+  bool isExpanded;
 
   Dropdown({
     required this.defaultValue,
     required this.items,
     this.isBold = true,
     this.isDefaultFont = false,
+    this.isExpanded = true,
   });
 
   @override
@@ -23,7 +25,7 @@ class _DropdownState extends State<Dropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      isExpanded: true,
+      isExpanded: this.widget.isExpanded,
       value: this.widget.defaultValue,
       icon: const Icon(Icons.keyboard_arrow_down_sharp),
       iconSize: 24,
