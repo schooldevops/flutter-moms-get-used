@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 
 class ProductDetailFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(color: kMainBackgroundColor),
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -13,14 +15,14 @@ class ProductDetailFooter extends StatelessWidget {
             child: Icon(
               FontAwesomeIcons.home,
               size: 25.0,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onTap: () {
               print("Pressed");
             },
           ),
           SizedBox(
-            width: 10,
+            width: 15,
           ),
           Expanded(
             child: Row(
@@ -29,16 +31,33 @@ class ProductDetailFooter extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text('18,000 원'), Text('가격제안불가')],
+                  children: [
+                    Text(
+                      '18,000 원',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17.0,
+                      ),
+                    ),
+                    Text(
+                      '가격제안불가',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 20)),
-                  onPressed: () {
-                    print("Pressed btn");
-                  },
-                  child: const Text('Disabled'),
-                ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      shadowColor: kMainBackgroundColor,
+                    ),
+                    onPressed: () {
+                      print("채팅으로 구매하기");
+                    },
+                    child: const Text(
+                      '채팅으로 구매하기',
+                      style: TextStyle(color: kMainBackgroundColor),
+                    )),
               ],
             ),
           ),

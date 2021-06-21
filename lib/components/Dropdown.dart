@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 class Dropdown extends StatefulWidget {
   String defaultValue;
   List<String> items;
+  bool isBold;
+  bool isDefaultFont;
 
-  Dropdown({required this.defaultValue, required this.items});
+  Dropdown({
+    required this.defaultValue,
+    required this.items,
+    this.isBold = true,
+    this.isDefaultFont = false,
+  });
 
   @override
   _DropdownState createState() => _DropdownState();
@@ -35,10 +42,14 @@ class _DropdownState extends State<Dropdown> {
           value: value,
           child: Text(
             value,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: this.widget.isDefaultFont
+                ? null
+                : TextStyle(
+                    fontSize: 20,
+                    fontWeight: this.widget.isBold
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                  ),
           ),
           onTap: () {
             print('clicked menu');
