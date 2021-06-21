@@ -45,7 +45,7 @@ class _AddProductScreen extends State<AddProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    // double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(

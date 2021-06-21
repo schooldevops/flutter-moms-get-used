@@ -10,6 +10,7 @@ class UserInfo extends ChangeNotifier {
   String location1;
   String? location2;
   double score;
+  String category;
 
   UserInfo(
       {required this.userId,
@@ -17,5 +18,11 @@ class UserInfo extends ChangeNotifier {
       required this.userName,
       required this.location1,
       this.location2,
-      this.score = 50.0});
+      this.score = 50.0,
+      this.category = '식기'});
+
+  void changeCategory(String category) {
+    this.category = category;
+    notifyListeners();
+  }
 }

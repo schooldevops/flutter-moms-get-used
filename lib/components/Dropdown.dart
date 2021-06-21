@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 
 // ignore: must_be_immutable
 class Dropdown extends StatefulWidget {
@@ -27,7 +28,7 @@ class _DropdownState extends State<Dropdown> {
       icon: const Icon(Icons.keyboard_arrow_down_sharp),
       iconSize: 24,
       elevation: 16,
-      style: const TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.white),
       underline: Container(
         height: 0,
         color: Colors.black26,
@@ -45,10 +46,11 @@ class _DropdownState extends State<Dropdown> {
             style: this.widget.isDefaultFont
                 ? null
                 : TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: this.widget.isBold
                         ? FontWeight.bold
                         : FontWeight.normal,
+                    color: kMainButtonColor,
                   ),
           ),
           onTap: () {
