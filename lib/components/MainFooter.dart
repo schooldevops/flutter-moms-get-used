@@ -99,7 +99,7 @@ class MainFooter extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              print("Pressed");
+              Navigator.pushNamed(context, 'chats');
             },
             child: Container(
               margin: EdgeInsets.all(5.0),
@@ -114,7 +114,7 @@ class MainFooter extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "챗",
+                    "Chat",
                     style: TextStyle(color: Colors.white),
                   ),
                 ],

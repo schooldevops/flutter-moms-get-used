@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moms_get_used/models/UserInfo.dart';
 import 'package:moms_get_used/screens/AddProductScreen.dart';
 import 'package:moms_get_used/screens/CategoryScreen.dart';
+import 'package:moms_get_used/screens/ChatListScreen.dart';
 import 'package:moms_get_used/screens/HomeScreen.dart';
 import 'package:moms_get_used/screens/RecommendScreen.dart';
 import 'package:moms_get_used/services/ProductService.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
               'addProduct': (context) => AddProductScreen(),
               'category': (context) => CategoryScreen(),
               'recommend': (context) => RecommendScreen(),
+              'chats': (context) => ChatListScreen(),
             },
           );
         },
