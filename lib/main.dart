@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moms_get_used/models/UserInfo.dart';
 import 'package:moms_get_used/screens/AddProductScreen.dart';
+import 'package:moms_get_used/screens/BabyInfoScreen%20copy.dart';
+import 'package:moms_get_used/screens/SearchKeywordScreen.dart';
 import 'package:moms_get_used/screens/CategoryScreen.dart';
 import 'package:moms_get_used/screens/ChatListScreen.dart';
 import 'package:moms_get_used/screens/HomeScreen.dart';
+import 'package:moms_get_used/screens/MyPageScreen.dart';
 import 'package:moms_get_used/screens/RecommendScreen.dart';
 import 'package:moms_get_used/services/ProductService.dart';
 import 'package:moms_get_used/services/UserService.dart';
@@ -45,6 +48,9 @@ class MyApp extends StatelessWidget {
               'category': (context) => CategoryScreen(),
               'recommend': (context) => RecommendScreen(),
               'chats': (context) => ChatListScreen(),
+              'mypage': (context) => MyPageScreen(),
+              'babyinfo': (context) => BabyInfoScreen(),
+              'keyword': (context) => SearchKeywordScreen(),
             },
           );
         },

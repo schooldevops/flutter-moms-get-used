@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UserInfo extends ChangeNotifier {
   static const String DEFAULT_AVATAR =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnPGqX4s6HDBoVTLwIhy3fFmdxvMiDIfUtdA&usqp=CAU';
+      'https://www.incimages.com/uploaded_files/image/1920x1080/getty_624206636_200013332000928034_376810.jpg';
 
   int userId;
   String avatar;

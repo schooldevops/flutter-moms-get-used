@@ -123,7 +123,7 @@ class MainFooter extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              print("Pressed");
+              Navigator.pushNamed(context, 'mypage');
             },
             child: Container(
               margin: EdgeInsets.all(5.0),
