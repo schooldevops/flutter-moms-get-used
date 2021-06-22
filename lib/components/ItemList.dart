@@ -18,7 +18,7 @@ class BasicItemList extends StatelessWidget {
     // List<Image> images = product.getImages()!;
 
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           border:
               Border(bottom: BorderSide(color: Colors.black12, width: 0.5))),
@@ -79,7 +79,7 @@ class BasicItemList extends StatelessWidget {
                     Text(
                       '${product.title}',
                       style: TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.w400),
+                          fontSize: 18.0, fontWeight: FontWeight.w400),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
