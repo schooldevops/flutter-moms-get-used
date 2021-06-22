@@ -11,7 +11,7 @@ class BasicItemList extends StatelessWidget {
   BasicItemList(this.product);
 
   String imgUrl =
-      'http://img2.tmon.kr/cdn3/deals/2020/10/12/4517849590/4517849590_front_1c746e8c3f.jpg';
+      'https://img2.tmon.kr/cdn3/deals/2020/10/12/4517849590/4517849590_front_1c746e8c3f.jpg';
 
   @override
   Widget build(BuildContext context) {

@@ -7,8 +7,8 @@ class BasicItemListView extends StatelessWidget {
   List<Item> products = [
     Item(
         items: [
-          'http://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
-          'http://img2.tmon.kr/cdn3/deals/2020/10/12/4517849590/4517849590_front_1c746e8c3f.jpg'
+          'https://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
+          'https://img2.tmon.kr/cdn3/deals/2020/10/12/4517849590/4517849590_front_1c746e8c3f.jpg'
         ],
         title: '아기운동화m아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화',
         location: '을지로',
@@ -125,7 +125,7 @@ SUV차량 트렁크에 실립니다"""),
     Item(
         items: [
           'https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F995789405D4A2A3E05',
-          'http://image.auction.co.kr/itemimage/11/e1/83/11e18394c6.jpg'
+          'https://image.auction.co.kr/itemimage/11/e1/83/11e18394c6.jpg'
         ],
         title: '애착인형(토끼) 업어가세요. 아이들이 너무 좋아해요 ',
         location: '강원도',
@@ -216,8 +216,8 @@ SUV차량 트렁크에 실립니다"""),
 도형모양,채소모양,그림 퍼즐맞추기 ,색깔개구리낚시놀이,망치로 두두리기,동물기차놀이 )"""),
     Item(
         items: [
-          'http://img.danawa.com/prod_img/500000/712/425/img/9425712_1.jpg?shrink=360:360&_v=20200715181814',
-          'http://img.danawa.com/prod_img/500000/151/300/img/11300151_1.jpg?shrink=500:500&_v=20200717174244'
+          'https://img.danawa.com/prod_img/500000/712/425/img/9425712_1.jpg?shrink=360:360&_v=20200715181814',
+          'https://img.danawa.com/prod_img/500000/151/300/img/11300151_1.jpg?shrink=500:500&_v=20200717174244'
         ],
         title: '하기스 남아 팬티형',
         location: '울산',

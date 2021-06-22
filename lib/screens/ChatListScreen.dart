@@ -171,7 +171,7 @@ List<ChatSummary> createFixtureChatSummary() {
       itemId: 1,
       itemTitle: '아기운동화m아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화',
       endMessageDate: DateTime.now(),
-      imgUrl: 'http://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
+      imgUrl: 'https://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
       status: '거래중',
       price: 3000,
       partner: UserInfo(
@@ -215,7 +215,7 @@ List<ChatSummary> createFixtureChatSummary() {
       partner: UserInfo(
         userId: 3,
         avatar:
-            'http://www.myashley.co.kr/upload/Ashley/Notice/200421_%EC%95%A0%EC%8A%90%EB%A6%AC_%EC%8A%90%EB%A6%AC%EC%A6%88_%EC%BA%90%EB%A6%AD%ED%84%B0%EC%86%8C%EA%B0%9C_%EC%98%A8%EB%9D%BC%EC%9D%B8%EC%9A%A9(ver1)-05(3).jpg',
+            'https://www.myashley.co.kr/upload/Ashley/Notice/200421_%EC%95%A0%EC%8A%90%EB%A6%AC_%EC%8A%90%EB%A6%AC%EC%A6%88_%EC%BA%90%EB%A6%AD%ED%84%B0%EC%86%8C%EA%B0%9C_%EC%98%A8%EB%9D%BC%EC%9D%B8%EC%9A%A9(ver1)-05(3).jpg',
         userName: '린맘',
         location1: '과천시 동구',
       ),

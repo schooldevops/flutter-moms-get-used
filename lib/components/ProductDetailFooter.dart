@@ -84,7 +84,7 @@ createChatSummaryFixture() {
     itemId: 1,
     itemTitle: '아기운동화m아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화아기운동화',
     endMessageDate: DateTime.now(),
-    imgUrl: 'http://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
+    imgUrl: 'https://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
     status: '거래중',
     price: 3000,
     partner: UserInfo(
