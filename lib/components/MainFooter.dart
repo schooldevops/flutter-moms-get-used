@@ -1,121 +1,148 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 
-class MainFooter extends StatefulWidget {
-  @override
-  _MainFooterState createState() => _MainFooterState();
-}
+// ignore: must_be_immutable
+class MainFooter extends StatelessWidget {
+  // String currentMenu = 'home';
 
-class _MainFooterState extends State<MainFooter> {
+  // addProduct, category
+
+//   @override
+//   _MainFooterState createState() => _MainFooterState();
+// }
+
+// class _MainFooterState extends State<MainFooter> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
+        color: kMainBackgroundColor,
         border: Border.all(
           width: 1,
-          color: Colors.black12,
+          color: Colors.black26,
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: <Widget>[
-                GestureDetector(
-                    child: Icon(
-                      FontAwesomeIcons.home,
-                      size: 25.0,
-                      color: Colors.black,
-                    ),
-                    onTap: () {
-                      print("Pressed");
-                    }),
-                SizedBox(
-                  height: 5,
-                ),
-                Text("홈")
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.popAndPushNamed(context, 'home');
+            },
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.home,
+                    size: 25.0,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "홈",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: <Widget>[
-                GestureDetector(
-                    child: Icon(
-                      FontAwesomeIcons.medal,
-                      size: 25.0,
-                      color: Colors.black26,
-                    ),
-                    onTap: () {}),
-                SizedBox(
-                  height: 5,
-                ),
-                Text("추천")
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'recommend');
+            },
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.medal,
+                    size: 25.0,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "추천",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: <Widget>[
-                GestureDetector(
-                    child: Icon(
-                      FontAwesomeIcons.plusCircle,
-                      size: 50.0,
-                      color: Colors.redAccent,
-                    ),
-                    onTap: () {
-                      Navigator.pushNamed(context, 'addProduct');
-                    }),
-                // SizedBox(
-                //   height: 5,
-                // ),
-                // Text("Sell")
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'addProduct');
+            },
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.plusCircle,
+                    size: 50.0,
+                    // color: Colors.white,
+                    color: kMainButtonColor,
+                  ),
+                  // SizedBox(
+                  //   height: 5,
+                  // ),
+                  // Text("Sell")
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: <Widget>[
-                GestureDetector(
-                    child: Icon(
-                      FontAwesomeIcons.comments,
-                      size: 25.0,
-                      color: Colors.black26,
-                    ),
-                    onTap: () {
-                      print("Pressed");
-                    }),
-                SizedBox(
-                  height: 5,
-                ),
-                Text("챗")
-              ],
+          GestureDetector(
+            onTap: () {
+              print("Pressed");
+            },
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.comments,
+                    size: 25.0,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "챗",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: <Widget>[
-                GestureDetector(
-                    child: Icon(
-                      FontAwesomeIcons.user,
-                      size: 28.0,
-                      color: Colors.black26,
-                    ),
-                    onTap: () {
-                      print("Pressed");
-                    }),
-                SizedBox(
-                  height: 5,
-                ),
-                Text("My")
-              ],
+          GestureDetector(
+            onTap: () {
+              print("Pressed");
+            },
+            child: Container(
+              margin: EdgeInsets.all(5.0),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    FontAwesomeIcons.user,
+                    size: 25.0,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "My",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -1,10 +1,177 @@
 import 'package:flutter/material.dart';
-import 'package:moms_get_used/components/ItemList.dart';
+import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 import 'package:moms_get_used/models/Item.dart';
+import 'package:moms_get_used/models/RecommendItem.dart';
+import 'package:moms_get_used/screens/DetailProductScreen.dart';
 
 // ignore: must_be_immutable
-class BasicItemListView extends StatelessWidget {
-  List<Item> products = [
+class RecommendScreen extends StatelessWidget {
+  RecommendItem recommendedItems = RecommendItem(
+    recommendedItem: getRecommendedItems(),
+    recentSearchItem: getRecentSearchItems(),
+    keywordItem: getKeywordItems(),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('아이를 위한 추천'),
+        backgroundColor: kMainBackgroundColor,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () => {
+            Navigator.pop(context),
+          },
+        ),
+        actions: [
+          // IconButton(
+          //     icon: Icon(Icons.search), onPressed: () => {print('click')}),
+          // ElevatedButton(
+          //   onPressed: () => {print('clic')},
+          //   child: Text('등록하기'),
+          //   style: ElevatedButton.styleFrom(
+          //     primary: kMainButtonColor,
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: new BorderRadius.circular(8.0),
+          //     ),
+          //   ),
+          // ),
+        ],
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: width,
+            height: height,
+            child: recommendLayout(context),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget recommendLayout(BuildContext context) {
+    return Column(
+      children: [
+        recommendBox(
+            context, '우리 아이를 위한 추천 상품', this.recommendedItems.recommendedItem!),
+        recommendBox(
+            context, '최근 검색 추천 상품', this.recommendedItems.recentSearchItem!),
+        recommendBox(
+            context, 'Keyword 추천 상품', this.recommendedItems.keywordItem!),
+        SizedBox(
+          height: 10,
+        )
+      ],
+    );
+  }
+
+  Widget recommendBox(BuildContext context, String title, List<Item> items) {
+    double width = MediaQuery.of(context).size.width;
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      width: width,
+      height: 240,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 15, bottom: 10),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '$title',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ...items.map((item) => itemContainer(context, item))
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget itemContainer(BuildContext context, Item item) {
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailProductScreen(item: item),
+            // builder: (context) => DetailsScreen(),
+          ),
+        ),
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        width: 160,
+        height: 180,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(
+            color: kMainBackgroundColor,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: Text(
+                item.title,
+                overflow: TextOverflow.clip,
+                maxLines: 1,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Image(
+                  image: NetworkImage(item.items![0]),
+                  height: 100.0,
+                  width: 100.0,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 10),
+              child: Text(
+                item.getFormattedPrice(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+getRecommendedItems() {
+  return [
     Item(
         items: [
           'http://gdimg.gmarket.co.kr/926294632/still/600?ver=0',
@@ -66,45 +233,11 @@ Schwinn Roadster Tricycle for Toddlers and Kids
 성서토이앤맘 앞에서 만나서 거래해요^^
 
 """),
-    Item(
-        items: [
-          'https://dnvefa72aowie.cloudfront.net/origin/article/202106/B4C22412E27E68E7A70B0749E43217CB270159FA8B798D3B3BF9DE6E5F4ACCB5.jpg?q=95&s=1440x1440&t=inside',
-          'https://dnvefa72aowie.cloudfront.net/origin/article/202106/C0A3710F222B364AB3201DB4ECD69B36E8F0677637846B4C2B10F6614C41B7CB.jpg?q=95&s=1440x1440&t=inside',
-        ],
-        title: '쌍둥이유모차,연년생유모차,부가부동키',
-        location: '종각',
-        category: 'STROLLER',
-        registeredAt: DateTime.now(),
-        price: 250000,
-        contents: """2013년 11월식
+  ];
+}
 
-캐노피 2개
-시트라이너 2개
-레인커버 2개
-안전바 2개
-베시넷 2개
-정품 컵홀더
-장바구니(1인용 변신후 사용하시면 편해요)
-마니또 방한커버 2개
-아이허그 겨울워머 2개
-여름용 썬캐노피 2개(사용감 있음)
-
-작년에 전문세탁업체 맡겨서 세탁하고
-첫째 유모차 거부호 몇번 못태우고
-보관만 하고 있습니다
-베시넷 파란색 덮개에 살짝 얼룩있는데
-심하지 않아요
-중고 구입해서 저는 파란색 시트라이너랑 핑크 베시넷만 사용하고 다른건 사용안했어요
-그래서 부품사진은 전주인의 사진 캡쳐했어요
-
-큰기스는 사진에 있는 정도이고
-생활기스는 있지만
-손잡이나 안전바에 커버가 씌워져있어서
-깨끗한 편입니다
-1인용 2인용 변신이 가능하고요
-핸들링 좋아서 아이 둘이 타고 있어도
-여자 혼자 밀고 다니기 너무 좋아요
-SUV차량 트렁크에 실립니다"""),
+getRecentSearchItems() {
+  return [
     Item(
         items: [
           'https://dnvefa72aowie.cloudfront.net/origin/article/202106/47D0CE82F7D5A95F1D43D8D476F0ED99F817C88D1A0AFD779A1F239575E40BA6.jpg?q=95&s=1440x1440&t=inside',
@@ -145,59 +278,11 @@ SUV차량 트렁크에 실립니다"""),
         price: 45000,
         contents:
             '[호빵맨 유아 의자]\n✔️7-36개월 아이들이 사용하는 의자 입니다.\n✔️제한 체중 : 16kg\n✔️사이즈 : W360 x H365 x D380mm\n앉을때 소리가 나요✔️\n사용안한 새 상품입니다✔️\n운송과정 아주 작은 기스가 있습니다‼️\n실제 구입가격 식판까지 해서 70,000원\n교환 및 환불은 불가합니다'),
-    Item(
-        items: [
-          'https://dnvefa72aowie.cloudfront.net/origin/article/202106/ed34db14920f3404277753339b6613c1c484a00a84be1e7cdd8f41bb82505525.webp?q=95&s=1440x1440&t=inside',
-          'https://dnvefa72aowie.cloudfront.net/origin/article/202106/02a42957c0ede7f7ee52f04853cc30372e760fc1a26f9213e6c5aaa003b4f533.webp?q=95&s=1440x1440&t=inside',
-          'https://dnvefa72aowie.cloudfront.net/origin/article/202106/e4591b37636dcf4d05323cb984dd18f3948bdc10e840f12888055a6b34a2f91f.webp?q=95&s=1440x1440&t=inside',
-        ],
-        title: '유아♡유아♡아동 동화책 ~10권~ 한권에 1.000원으로 내려드려요~^^♡일괄하시면 8,000원에 드릴께요~^^',
-        location: '부산',
-        category: 'BOOK',
-        registeredAt: DateTime.now(),
-        price: 3000,
-        contents: """♡환불.반품은 죄송하지만 않되어요♡
-유아♡아동 동화책 ~10권~
-한권에 1.000원으로 내려드려요~~^^♡
-일괄하시면 8,000원에 드릴께요~^^♡
-작년부터 서평책으로 받은거라 헐지도않았구요~~깨끗하답니다~^♡^
-세이펜호환되는책도 있답니다~~^^♡
+  ];
+}
 
-☆ 교과서 으뜸 통합미술탐구☆
-♡방물관에 간 특별한 사진기♡~1권
-
-☆구름동동 그림책☆
-♡우리아빠가 최고야♡~1권
-
-☆꾸러기 생각동화☆
-♡생각바꾸기♡~1권
-
-☆창의력 발달동화 생각날개☆
-♡마술 회전 관람차♡~1권
-
-♡사랑의왕,레오~1권 ♡세이펜됨♡
-
-♡나랑놀자~1권 ♡세이펜됨♡
-
-☆ 눈높이창의독서☆
-♡그래도 내 동생이야♡1권~
-
-☆개구쟁이생활☆
-♡봄이온걸 알수있어요♡1권~
-
-☆몽글몽글 생활동화☆
-♡제자리에 척척♡1권~세이펜됨
-
-☆눈높이 창의도서☆
-♡그래도 내동생이야♡~1권
-
-☆창의력발달 생각날개 언어영역.유차성☆
-♡빨간 모자가 늑대를 만났을때(끝말잇기)♡1권~
-
-책들이 그림도 이쁘고 내용도 알차고 너무 좋답니다~~^^♡
-
-♡가지러 오셔야하구요~
-♡직거래 장소는 동부경찰서 맞은편 구황금불가앞이나 문예회관정문앞 입니다~~♡"""),
+getKeywordItems() {
+  return [
     Item(
         items: [
           'https://dnvefa72aowie.cloudfront.net/origin/article/202106/7C2FE51282BACF0B3982922847D0386B1AA61AF99F765D1B2784D75263716E05.jpg?q=95&s=1440x1440&t=inside',
@@ -279,15 +364,4 @@ SUV차량 트렁크에 실립니다"""),
 
 #올림픽공원역거래 #주말가능직거래는 #택배가능"""),
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.all(8),
-      itemCount: products.length,
-      itemBuilder: (BuildContext context, int index) {
-        return BasicItemList(products[index]);
-      },
-    );
-  }
 }

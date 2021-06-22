@@ -8,7 +8,7 @@ import 'package:moms_get_used/cosnts/ColorsConstants.dart';
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   String defaultValue = "을지로2가";
-  List<String> items = ['을지로2가', '미사'];
+  List<String> items = ['을지로2가', '미사', '전지역'];
 
   HomeScreen({Key? key}) : super(key: key);
 

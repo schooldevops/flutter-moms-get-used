@@ -43,7 +43,6 @@ class CategoryScreen extends StatelessWidget {
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 children: [
-                  categoryItems(context, 'ALL', 'ALL' == userInfo.category),
                   ...categories.map((item) => categoryItems(
                       context, '$item', '$item' == userInfo.category))
                 ],
